@@ -34,6 +34,25 @@
 		<!-- lookup parent from repository -->
 	</parent>
 
+	<profiles>
+		<profile>
+			<id>dev</id>
+			<properties>
+				<mysql.url>jdbc:mysql://47.108.159.157:3306/baiss?characterEncoding=utf-8&amp;serverTimezone=GMT%2B8&amp;useSSL=false</mysql.url>
+				<mysql.username>root</mysql.username>
+				<mysql.password>zerone888</mysql.password>
+				<mongodb.uri>mongodb://bitrade:zerone888@47.108.159.157:27017/bitrade</mongodb.uri>
+				<redis.host>47.108.159.157</redis.host>
+				<redis.port>6379</redis.port>
+				<redis.password>zerone888</redis.password>
+			</properties>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+		</profile>
+	</profiles>
+
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.build.jdk_version>1.8</project.build.jdk_version>

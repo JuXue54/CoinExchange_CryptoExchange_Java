@@ -33,7 +33,7 @@ public class ExchangeCoinService {
         return coinRepository.findAll(spec, sort);
     }
 
-    //获取所有可显示币种
+    //获取所有可显示币种，即需要前端显示的
     public List<ExchangeCoin> findAllVisible() {
         Specification<ExchangeCoin> spec = (root, criteriaQuery, criteriaBuilder) -> {
             Path<String> visible = root.get("visible");
@@ -45,7 +45,9 @@ public class ExchangeCoinService {
         Sort sort = new Sort(order);
         return coinRepository.findAll(spec, sort);
     }
-    
+
+
+    // 所有被标记的
     public List<ExchangeCoin> findAllByFlag(int flag) {
         Specification<ExchangeCoin> spec = (root, criteriaQuery, criteriaBuilder) -> {
             Path<String> enable = root.get("enable");

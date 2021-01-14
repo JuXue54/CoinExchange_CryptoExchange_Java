@@ -489,7 +489,7 @@ public class ExchangeOrderService extends BaseService {
                 }
 
                 // 控制推荐人推荐是否返佣 等于false是二级推荐人不返佣
-                if (secondReferrerAward == false) {
+                if (!secondReferrerAward) {
                     log.info("控制字段 : secondReferrerAward ={} , 跳过二级推荐人返佣", secondReferrerAward);
                     return;
                 }

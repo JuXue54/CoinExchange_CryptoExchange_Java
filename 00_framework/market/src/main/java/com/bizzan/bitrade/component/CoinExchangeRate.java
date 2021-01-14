@@ -175,6 +175,13 @@ public class CoinExchangeRate {
     
     @Scheduled(cron = "0 */5 * * * *")
     public void syncUsdtCnyPrice() throws UnirestException {
+        // there are some problems
+        if(true){
+            setUsdtCnyRate(new BigDecimal("6.45").setScale(2, RoundingMode.HALF_UP));
+            return;
+        }
+
+
     	// 抹茶OTC接口
     	String url = "https://otc.mxc.com/api/coin/USDT/price";
         //如有报错 请自行官网申请获取汇率 或者默认写死
@@ -221,6 +228,8 @@ public class CoinExchangeRate {
 	        	}
 	        }
         }
+
+
     }
     
     /**

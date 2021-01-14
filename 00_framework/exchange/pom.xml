@@ -74,6 +74,7 @@
                 <resources>
                     <resource>
                         <directory>src/main/resources/dev</directory>
+                        <filtering>true</filtering>
                     </resource>
                 </resources>
             </build>

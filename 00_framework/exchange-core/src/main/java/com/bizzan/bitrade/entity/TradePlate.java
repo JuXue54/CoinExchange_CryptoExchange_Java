@@ -30,6 +30,11 @@ public class TradePlate {
         items = new LinkedList<>();
     }
 
+    /***
+     * 交易价格高过现有的交易价格就会更新盘口数据，例如外盘，新增交易为买入，并且买入比items中的最高价格高或相等
+     *  相等  交易量更新为 之前的+ (买入量-交易量)
+     *  高于  新增一条item  (买入量-交易量)
+     */
     public boolean add(ExchangeOrder exchangeOrder) {
         //log.info("add TradePlate order={}",exchangeOrder);
         synchronized (items) {
@@ -37,6 +42,7 @@ public class TradePlate {
             if (exchangeOrder.getType() == ExchangeOrderType.MARKET_PRICE) {
                 return false;
             }
+            // 交易方向 和 外盘/内盘 相对应
             if (exchangeOrder.getDirection() != direction) {
                 return false;
             }

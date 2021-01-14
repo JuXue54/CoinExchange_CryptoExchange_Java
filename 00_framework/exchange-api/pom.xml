@@ -79,7 +79,7 @@
 			<groupId>com.sparkframework</groupId>
 			<artifactId>spark-core</artifactId>
 			<scope>system</scope>
-			<systemPath>E:/10_Exchange/src/BizzanExchange_framework/jar/spark-core-2.6.0.jar</systemPath>
+			<systemPath>E:/DELL/Documents/projects/CoinExchange_CryptoExchange_Java/00_framework/jar/spark-core-2.6.0.jar</systemPath>
 		</dependency>
     </dependencies>
     <profiles>
@@ -95,6 +95,9 @@
                     </resource>
                 </resources>
             </build>
+            <properties>
+                  <redis.password>zerone888</redis.password>
+            </properties>
             <!--<properties>
                 <project.profile>application</project.profile>
             </properties>-->
@@ -102,7 +105,7 @@
         <profile>
             <id>test</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
             </activation>
             <build>
                 <resources>
@@ -121,7 +124,7 @@
                 <project.profile>application-prod</project.profile>
             </properties>-->
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
             </activation>
             <build>
                 <resources>

@@ -51,7 +51,7 @@ public class CheckExchangeRate {
     		factory.set(coin.getUnit(), new BigDecimal(coin.getUsdRate()), new BigDecimal(coin.getCnyRate()));
     	}
     }
-    
+
     private BigDecimal getUsdRate(String unit) {
         String url = "http://" + serviceName + "/market/exchange-rate/usd/{coin}";
         ResponseEntity<MessageResult> result = restTemplate.getForEntity(url, MessageResult.class, unit);
@@ -65,11 +65,11 @@ public class CheckExchangeRate {
     }
 
     private BigDecimal getUsdCnyRate() {
-        String url = "http://" + serviceName + "/market/exchange-rate/usd-cny";
+        String url = "http://" + serviceName + "/market/exchange-rate/usdtcny";
         ResponseEntity<MessageResult> result = restTemplate.getForEntity(url, MessageResult.class);
         log.info("remote call:url={}", url);
         if (result.getStatusCode().value() == 200 && result.getBody().getCode() == 0) {
-            BigDecimal rate = new BigDecimal((Double) result.getBody().getData());
+            BigDecimal rate = new BigDecimal((String)result.getBody().getData());
             return rate;
         } else {
             return BigDecimal.ZERO;
